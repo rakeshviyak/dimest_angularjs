@@ -1,0 +1,182 @@
+              <div class="file-box" ng-controller="ProductController">
+                <div class="recently-added-products clearfix">
+                  <h5>My Recently added products:</h5>
+                  <div class="product-list" ng-repeat="product in products | orderByPriority | filter:searchText | orderBy:'type'">
+                    <ul>
+
+                      <li>
+                        <div class="product-thumbnail"><img alt="Unit" src="images/unit-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>{{product.name}}</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="music-mp3">{{product.type}}</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a><a href="#/edit/{{product.$id}}" class="edit">Edit</a></div>
+                      </li>
+                    </ul>
+                  </div><a class="btn-link" href="#/new">upload new <span>&gt;</span></a>
+                </div>
+                <div class="search-available-products">
+                  <h5>Search among All Available Products:&nbsp;&nbsp;<span>(your own &amp; other) </span></h5>
+                  <div class="product-list">
+                    <ul>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Lighter" src="images/lighter-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Lighter</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="ebook-pdf">E book/pdf</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Dessert Walk" src="images/dessert-walk-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Dessert Walk</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="image-png">Image/PNG</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Haunted Dream" src="images/haunted-dream-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Haunted Dream</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="music-mp3">Music/mp3</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Capital A" src="images/capital-a-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Capital A</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="music-mp3">Music/mp3</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="The Trees" src="images/the-trees-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>The Trees</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="video-flv">Video/flv</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Lighter" src="images/lighter-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Lighter</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="ebook-pdf">E book/pdf</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Dessert Walk" src="images/dessert-walk-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Dessert Walk</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="image-png">Image/PNG</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Haunted Dream" src="images/haunted-dream-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Haunted Dream</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="music-mp3">Music/mp3</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Capital A" src="images/capital-a-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Capital A</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="music-mp3">Music/mp3</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="The Trees" src="images/the-trees-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>The Trees</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="video-flv">Video/flv</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Lighter" src="images/lighter-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Lighter</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="ebook-pdf">E book/pdf</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Dessert Walk" src="images/dessert-walk-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Dessert Walk</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="image-png">Image/PNG</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                      <li>
+                        <div class="product-thumbnail"><img alt="Haunted Dream" src="images/haunted-dream-thumb.jpg"></div>
+                        <div class="product-name">
+                          <p>Haunted Dream</p>
+                        </div>
+                        <div class="product-type">
+                          <p class="music-mp3">Music/mp3</p>
+                        </div>
+                        <div class="product-options"><a href="#" class="add">Add</a></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="product-pagination">
+                    <ul>
+                      <li>
+                        <ul>
+                          <li>
+                            <ul>
+                              <li><a href="javascript:void(0)" class="first-page disabled">First Page</a></li>
+                              <li><a href="javascript:void(0)" class="prev-page disabled">Previous Page</a></li>
+                              <li>
+                                <input type="text" placeholder="1">
+                              </li>
+                              <li><span class="filenumber-per-page">/ 18</span></li>
+                              <li><a href="#" class="next-page">Next page</a></li>
+                              <li><a href="#" class="last-page">Last Page</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <p><span>[</span>
+                          <label>1 - 5 / 263</label><span>&nbsp;] </span>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
