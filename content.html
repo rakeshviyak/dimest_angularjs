@@ -13,12 +13,14 @@
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/styles.css">
     <link type="text/css" rel="stylesheet" href="css/layouts.css">
+    <link type="text/css" rel="stylesheet" href="css/index.css">
     <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.min.js"></script>
     <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+    <script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.2.3/firebase-simple-login.js'></script>
     <script type="text/javascript" src="js/project.js"></script>
   </head>
   <body>
@@ -122,7 +124,9 @@
                   </div>
                 </div>
               </div>
-              <div ng-view></div>
+              <div class="file-box" ng-controller="ProductController">
+                <div ng-view></div>
+              </div>
             </section>
           </div>  
           <div class="col-md-6">
@@ -163,7 +167,7 @@
                           <li>
                             <div class="file-thumbnail"><img alt="EDG" src="images/edg-thumb.jpg"></div>
                             <div class="file-name">
-                              <p>EDG</p>
+                              <p>EDG_Vio</p>
                             </div>
                             <div class="file-type">
                               <p class="video-flv">Video/flv</p>
