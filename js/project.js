@@ -75,9 +75,9 @@ app.controller('EditController', function($scope, $location, $routeParams, $fire
 
 app.config(function($routeProvider){
 	$routeProvider
-		.when('/', {templateUrl: '/AngularJS Test/views/products.html', controller: 'ProductController'})
-		.when('/new', {templateUrl: '/AngularJS Test/views/upload.html', controller: 'CreateController' })
-		.when('/edit/:productId', {templateUrl: '/AngularJS Test/views/upload.html', controller: 'EditController' })
+		.when('/', {templateUrl: '/views/products.html', controller: 'ProductController'})
+		.when('/new', {templateUrl: '/views/upload.html', controller: 'CreateController' })
+		.when('/edit/:productId', {templateUrl: '/views/upload.html', controller: 'EditController' })
 		.otherwise({ redirectTo:'/'});
 });
 
