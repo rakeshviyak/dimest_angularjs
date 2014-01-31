@@ -1,12 +1,33 @@
+// instatiate the FirebaseSimpleLogin and monitor the user's auth state
+var chatRef = new Firebase('https://blinding-fire-2115.firebaseio.com/');
+var currentUser;
+var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
+  if (error) {
+    // an error occurred while attempting login
+    console.log(error);
+  } else if (user) {
+    // user authenticated with Firebase
+    // console.log(user);
+    console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+    currentUser=user.id;
+  } else {
+    // user is logged out
+  }
+});
+
+// attempt to log the user in with your preferred authentication provider
+auth.login('anonymous');
+
+
 /**
 *  Module
 *
 * Description
 */
-var app=angular.module('dimestApp', ['ngRoute','firebase']);
+var app=angular.module('dimestApp', ['ngRoute','firebase','components']);
 
 app.value('fbURL', 'https://blinding-fire-2115.firebaseio.com/');
- 
+	 
 app.factory('Products', function($firebase, fbURL) {
   return $firebase(new Firebase(fbURL));
 });
@@ -21,46 +42,44 @@ app.factory('ProductTypes',function(){
 	return producttypes;
 });
 
+app.factory('mySharedService', function($rootScope) {
+    var sharedService = {};
+    
+    sharedService.product = '';
 
-// instatiate the FirebaseSimpleLogin and monitor the user's auth state
-var chatRef = new Firebase('https://blinding-fire-2115.firebaseio.com/');
-var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
-  if (error) {
-    // an error occurred while attempting login
-    console.log(error);
-  } else if (user) {
-    // user authenticated with Firebase
-    console.log(user)
-    console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
-  } else {
-    // user is logged out
-  }
+    sharedService.prepForBroadcast = function(pdt) {
+        this.product = pdt;
+        this.broadcastItem();
+    };
+
+    sharedService.broadcastItem = function() {
+        $rootScope.$broadcast('handleBroadcast');
+    };
+    return sharedService;
 });
 
-// attempt to log the user in with your preferred authentication provider
-auth.login('anonymous');
 
-
-
-
-app.controller('ProductController',function($scope,Products){
+app.controller('ProductController',function($scope,Products,mySharedService){
 	$scope.products=Products;
+	$scope.pdtUsage='product';
+	$scope.add=function(product){
+		mySharedService.prepForBroadcast(product);
+	};
 });
 
 app.controller('CreateController', function($scope, $location, $timeout, Products,ProductTypes) {
 	$scope.producttypes=ProductTypes;
 	$scope.save = function() {
-		$scope.product=
-		Products.$add($scope.product);
+		$scope.product=Products.$add($scope.product);
 		$location.path('/');
 	};
 });
 
-app.controller('EditController', function($scope, $location, $routeParams, $firebase, fbURL,ProductTypes) {
+app.controller('EditController', function($scope, $location, $routeParams, $firebase, fbURL,ProductTypes,mySharedService) {
     var productUrl = fbURL + $routeParams.productId;
     $scope.product = $firebase(new Firebase(productUrl));
+    console.log($scope.product);
 	$scope.producttypes=ProductTypes;
-	$scope.product.type=$scope.producttypes[2];
 	
     $scope.destroy = function() {
       $scope.product.$remove();
@@ -69,15 +88,16 @@ app.controller('EditController', function($scope, $location, $routeParams, $fire
  
     $scope.save = function() {
       $scope.product.$save();
+      // mySharedService.prepForBroadcast($scope.product);
       $location.path('/');
     };
+
 });
 
 app.config(function($routeProvider){
 	$routeProvider
-		.when('/', {templateUrl: '/views/products.html', controller: 'ProductController'})
-		.when('/new', {templateUrl: '/views/upload.html', controller: 'CreateController' })
-		.when('/edit/:productId', {templateUrl: '/views/upload.html', controller: 'EditController' })
+		.when('/', {templateUrl: '/AngularJS Test/views/products.html', controller: 'ProductController'})
+		.when('/new', {templateUrl: '/AngularJS Test/views/upload.html', controller: 'CreateController' })
+		.when('/edit/:productId', {templateUrl: '/AngularJS Test/views/upload.html', controller: 'EditController' })
 		.otherwise({ redirectTo:'/'});
 });
-

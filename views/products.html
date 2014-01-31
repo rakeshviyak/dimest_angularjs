@@ -1,20 +1,11 @@
 <div class="recently-added-products clearfix">
   <h5>My Recently added products:</h5>
   <div class="product-list" ng-repeat="product in products | orderByPriority | filter:searchText | orderBy:'type'">
-    <ul>
-      <li>
-        <div class="product-thumbnail"><img alt="Unit" src="images/unit-thumb.jpg"></div>
-        <div class="product-name">
-          <p>{{product.name}}</p>
-        </div>
-        <div class="product-type">
-          <p class="{{product.type.class}}">{{product.type.name}}</p>
-        </div>
-        <div class="product-options"><a href="#" class="add">Add</a><a href="#/edit/{{product.$id}}" class="edit">Edit</a></div>
-      </li>
-    </ul>
-  </div><a class="btn-link" href="#/new">upload new <span>&gt;</span></a>
+    <product-row info="product"></product-row>
+  </div>
+  <a class="btn-link" href="#/new">upload new <span>&gt;</span></a>
 </div>
+
                 <div class="search-available-products">
                   <h5>Search among All Available Products:&nbsp;&nbsp;<span>(your own &amp; other) </span></h5>
                   <div class="product-list">

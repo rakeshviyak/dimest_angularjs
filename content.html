@@ -22,6 +22,7 @@
     <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.2.3/firebase-simple-login.js'></script>
     <script type="text/javascript" src="js/project.js"></script>
+    <script type="text/javascript" src="js/components.js"></script>
   </head>
   <body>
     <header>
@@ -124,7 +125,7 @@
                   </div>
                 </div>
               </div>
-              <div class="file-box" ng-controller="ProductController">
+              <div class="file-box">
                 <div ng-view></div>
               </div>
             </section>
@@ -133,7 +134,7 @@
             <aside>
               <h3>add tabs</h3>
               <h6>Find products and drag them into selected shop tab </h6>
-              <div id="add-tabs">
+<!--               <div id="add-tabs">
                 <ul class="tabs clearfix nav nav-tabs">
                   <li class="active"><a href="#tab-music">Music</a></li>
                   <li><a href="#tab-videos">Videos</a></li>
@@ -197,7 +198,14 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
+              <product-tabs>
+                <product-pane title="Music">Music</product-pane>
+                <product-pane title="Video">Video</product-pane>
+                <product-pane title="Ebook">Other</product-pane>
+                <product-pane title="Other">Other</product-pane>
+              </product-tabs>
+
               <div class="drag-drop clearfix">
                 <p>drag &amp; drop</p><span class="file-cloud"></span>
                 <p>products up here</p>

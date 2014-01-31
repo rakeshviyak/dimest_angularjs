@@ -1,0 +1,16 @@
+<ul>
+  <li>
+    <div class="{{pdtUsage}}-thumbnail"><img alt="Unit" src="images/unit-thumb.jpg"></div>
+    <div class="{{pdtUsage}}-name">
+      <p>{{product.name}}</p>
+    </div>
+    <div class="{{pdtUsage}}-type">
+      <p class="{{product.type.class}}">{{product.type.name}}</p>
+    </div>
+    <div class="{{pdtUsage}}-options">
+      <a href="#/" ng-click="add(product);" class="add" ng-show="pdtUsage=='product'">Add</a>
+      <a href="#/edit/{{product.$id}}" ng-click="edit(product)" class="edit">Edit</a>
+      <a href="#/" ng-click="delete(product)" class="delete" ng-hide="pdtUsage=='product'">Delete</a>
+    </div>
+  </li>
+</ul>
