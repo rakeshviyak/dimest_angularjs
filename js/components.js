@@ -12,7 +12,7 @@ angular.module('components', [])
       scope: {},
       controller: function($scope) {
         var panes = $scope.panes = [];
-
+        this.$scope=$scope;
  
         $scope.select = function(pane) {
           angular.forEach(panes, function(pane) {
@@ -26,6 +26,7 @@ angular.module('components', [])
             $scope.select(pane);
           }
           panes.push(pane);
+          console.log(panes);
         };
       },
       templateUrl: '/AngularJS Test/views/product-tabs.html'
@@ -36,35 +37,13 @@ angular.module('components', [])
       require: '^productTabs',
       restrict: 'E',
       transclude: false,
-      scope: {
-        title: '@'
-      },
-      controller:CartController,
+      scope:true,
       link: function(scope, element, attrs, tabsCtrl) {
+        console.log(scope);
+        scope.title=element.attr('title');
+        scope.pdtUsage='file';
         tabsCtrl.addPane(scope);
       },
       templateUrl: '/AngularJS Test/views/product-pane.html'
     };
   });
-
-function CartController($scope,mySharedService){
-	$scope.products=[];
-	$scope.pdtUsage='file';
-	
-	$scope.$on('handleBroadcast', function() {
-		$scope.products.push(mySharedService.product);
-		console.log('product'+$scope);
-		console.log('broadcast message :  '+ mySharedService.product.name);
-	});
-
-	$scope.delete=function(product){
-		$scope.products.splice($scope.products.indexOf(product),1);
-		console.log("removed");
-	};
-
-	$scope.edit=function(product){
-		console.log("edit");
-		$scope.product=product;
-	};
-}
-

@@ -4,3 +4,7 @@
 .padding-20{
 	padding:20px;
 }
+
+.tabbable > ul >li{
+	cursor: pointer;
+}

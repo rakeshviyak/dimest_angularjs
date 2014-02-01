@@ -61,8 +61,10 @@
               </div>
             </div>
             <div class="log_info col-lg-6 col-md-9 log_info col-sm-8 col-xs-7">
-              <div class="log-details"> 
-                <p>Logged in as<span class="profile-name">evi@dimest.com</span></p>
+              <div class="log-details" ng-controller="myCtrl"> 
+                <!-- <p>Logged in as<span class="profile-name">evi@dimest.com</span></p> -->
+                <button ng-hide="userid" ng-click="signin()">Sign in to personalize</button>
+                <p ng-show="userid">'{{userid}}'</p>
               </div>
             </div>
             <div class="col-md-9 log_info col-lg-3 col-sm-2 col-xs-2">
@@ -102,116 +104,8 @@
       </div>
       <div class="content">
         <div class="row">
-          <div class="col-md-6">
-            <section>
-              <h1>Content</h1>
-              <div class="row searcharea">
-                <div class="col-lg-7 col-md-12 col-sm-6 col-xs-6">
-                  <div class="search-product clearfix">
-                    <form action="#">
-                      <div class="pull-left">
-                        <input type="text" placeholder="Select products in your own catalog" ng-model="searchText">
-                      </div>
-                      <div class="pull-right">
-                        <input type="submit" value="Search">
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="col-lg-5 col-md-12 col-sm-6 col-xs-6">
-                  <div class="product-filter">
-                    <input type="checkbox" name="">
-                    <p>Only show my own products</p>
-                  </div>
-                </div>
-              </div>
-              <div class="file-box">
-                <div ng-view></div>
-              </div>
-            </section>
-          </div>  
-          <div class="col-md-6">
-            <aside>
-              <h3>add tabs</h3>
-              <h6>Find products and drag them into selected shop tab </h6>
-<!--               <div id="add-tabs">
-                <ul class="tabs clearfix nav nav-tabs">
-                  <li class="active"><a href="#tab-music">Music</a></li>
-                  <li><a href="#tab-videos">Videos</a></li>
-                  <li><a href="#tab-ebooks">E-books</a></li>
-                  <li><a href="#">Other</a></li>
-                  <li class="add-tab"><a href="#">Add Tab</a></li>
-                </ul>
-                <div class="tab-content">
-                  <div id="tab-music" class="tab-pane active">
-                    <div class="content-wrap">
-                      <div class="file-list">
-                        <ul>
-                          <li>
-                            <div class="file-thumbnail"><img alt="EDG" src="images/edg-thumb.jpg"></div>
-                            <div class="file-name">
-                              <p>EDG</p>
-                            </div>
-                            <div class="file-type">
-                              <p class="video-flv">Video/flv</p>
-                            </div>
-                            <div class="file-options"><a href="#" class="delete">Delete</a><a href="#" class="edit">Edit</a></div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="tab-videos" class="tab-pane">
-                    <div class="content-wrap">
-                      <div class="file-list">
-                        <ul>
-                          <li>
-                            <div class="file-thumbnail"><img alt="EDG" src="images/edg-thumb.jpg"></div>
-                            <div class="file-name">
-                              <p>EDG_Vio</p>
-                            </div>
-                            <div class="file-type">
-                              <p class="video-flv">Video/flv</p>
-                            </div>
-                            <div class="file-options"><a href="#" class="delete">Delete</a><a href="#" class="edit">Edit</a></div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="tab-ebooks" class="tab-pane">
-                    <div class="content-wrap">
-                      <div class="file-list">
-                        <ul>
-                          <li>
-                            <div class="file-thumbnail"><img alt="EDG" src="images/edg-thumb.jpg"></div>
-                            <div class="file-name">
-                              <p>EDG</p>
-                            </div>
-                            <div class="file-type">
-                              <p class="video-flv">Video/flv</p>
-                            </div>
-                            <div class="file-options"><a href="#" class="delete">Delete</a><a href="#" class="edit">Edit</a></div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <product-tabs>
-                <product-pane title="Music">Music</product-pane>
-                <product-pane title="Video">Video</product-pane>
-                <product-pane title="Ebook">Other</product-pane>
-                <product-pane title="Other">Other</product-pane>
-              </product-tabs>
+          <div ng-view></div>
 
-              <div class="drag-drop clearfix">
-                <p>drag &amp; drop</p><span class="file-cloud"></span>
-                <p>products up here</p>
-              </div><a class="btn-link">next <span>&gt;</span></a>
-            </aside>
-          </div>
         </div>
       </div>
     </div>
