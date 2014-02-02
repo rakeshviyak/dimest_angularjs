@@ -14,7 +14,7 @@ app.controller('ProductController',function($scope,$rootScope,$location,Products
   };
 
   $scope.currentPage = 0;
-  $scope.pageSize = 3;
+  $scope.pageSize = 10;
 
   $scope.numberOfPages=function(){
       return Math.ceil((Object.keys($scope.products).length-11)/$scope.pageSize);

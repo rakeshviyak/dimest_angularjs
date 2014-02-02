@@ -25,7 +25,7 @@
       <div class="recently-added-products clearfix">
         <h5>My Recently added products:</h5>
 
-        <div class="product-list" ng-repeat="product in products | orderByPriority | filter:{user:userid} | filter:searchDimest | filter:searchText | orderBy:'type'">
+        <div class="product-list" ng-repeat="product in products | orderByPriority | filter:{user:userid} | filter:searchDimest | filter:searchText">
           <product-row ng-show="userid"></product-row>
         </div>
         <div ng-hide="userid" class="login-box"><a href="#" ng-click="signin()"> Login</a> to add new products or use shop</div>
@@ -34,7 +34,7 @@
 
       <div class="search-available-products">
         <h5>Search among All Available Products:&nbsp;&nbsp;<span>(your own &amp; other) </span></h5>
-        <div class="product-list" ng-repeat="product in products | orderByPriority | filter:filterProducts() | filter:searchDimest | startFrom:currentPage*pageSize | limitTo:pageSize">
+        <div class="product-list" ng-repeat="product in products | orderByPriority | orderBy:'name' | filter:filterProducts() | filter:searchDimest | startFrom:currentPage*pageSize | limitTo:pageSize ">
           <product-row></product-row>
         </div>
         <div class="product-pagination">
