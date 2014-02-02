@@ -727,6 +727,7 @@ header .log_info .log-stat.out {
   line-height: 21px;
   background-position: 0 100%;
   background-repeat: no-repeat;
+  cursor:pointer;
 }
 #main-display .content section .file-box .search-available-products .product-pagination ul li a.first-page {
   background-image: url(../images/bg-first-page.png);
@@ -2484,4 +2485,28 @@ body.widget #widget .widget-options ul li a[class="get-it"] {
   height: 19px;
   border: 0;
   margin: 0;
+}
+
+.inline-blk{
+  display:inline-block;
+}
+.padding-20{
+  padding:20px;
+}
+
+.tabbable > ul >li{
+  cursor: pointer;
+}
+
+.product-pagination > a{
+  cursor:pointer;
+}
+
+.login-box{
+  padding: 23px 0 10px 0;
+  margin: 0px 8px;
+}
+
+.pdt-type-text{
+  font-size: 20px;
 }

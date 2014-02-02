@@ -6,7 +6,7 @@
   </div>
 
   <div class="form-group" ng-class="{error: myForm.type.$invalid && !myForm.type.$pristine}">
-    <label>Product type is {{product.type.name}} 
+    <label>Product type is <span class="pdt-type-text">{{product.type.name}}</span>
       <span ng-show="myForm.type.$error.required">not selected</span>. To modify</label>
     <select name="type" ng-model="product.type" ng-options="t.name for t in producttypes" required>
       <option value="">--choose here--</option>

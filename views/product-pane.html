@@ -1,6 +1,6 @@
 <div class="tab-pane" id="tab-{{title}}" ng-show="selected">
 	<div class="content-wrap">
-        <div class="file-list" ng-repeat="product in products | orderByPriority | filter:{cart:userid} | filter :{type.name:title}">
+        <div class="file-list" ng-show="userid" ng-repeat="product in products | orderByPriority | filter:searchDimest | filter:{cart:userid} | filter :{type.name:title}">
         	<product-row></product-row>
         </div>
     </div>

@@ -1,10 +1,12 @@
 angular.module('components', [])
+
 	.directive('productRow', function() {
 		return {
 			restrict:'E',
-			templateUrl:'/AngularJS Test/views/product-row.html'
+			templateUrl:'/views/product-row.html'
 		};
 	})
+
 	.directive('productTabs', function() {
     return {
       restrict: 'E',
@@ -26,12 +28,12 @@ angular.module('components', [])
             $scope.select(pane);
           }
           panes.push(pane);
-          console.log(panes);
         };
       },
-      templateUrl: '/AngularJS Test/views/product-tabs.html'
+      templateUrl: '/views/product-tabs.html'
     };
   })
+  
   .directive('productPane', function() {
     return {
       require: '^productTabs',
@@ -44,6 +46,6 @@ angular.module('components', [])
         scope.pdtUsage='file';
         tabsCtrl.addPane(scope);
       },
-      templateUrl: '/AngularJS Test/views/product-pane.html'
+      templateUrl: '/views/product-pane.html'
     };
   });

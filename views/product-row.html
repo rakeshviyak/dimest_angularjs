@@ -1,3 +1,4 @@
+<!-- template to create rows for the products -->
 <ul>
   <li>
     <div class="{{pdtUsage}}-thumbnail"><img alt="Unit" src="images/unit-thumb.jpg"></div>
@@ -9,7 +10,7 @@
     </div>
     <div class="{{pdtUsage}}-options">
       <a href="#/" ng-click="add(product,product.$id)" class="add" ng-show="pdtUsage=='product'">Add</a>
-      <a href="#/edit/{{product.$id}}" ng-click="edit(product)" class="edit">Edit</a>
+      <a href="#/edit/{{product.$id}}" ng-click="edit(product)" ng-show="product.user==userid" class="edit">Edit</a>
       <a href="#/" ng-click="delete(product,product.$id)" class="delete" ng-hide="pdtUsage=='product'">Delete</a>
     </div>
   </li>
