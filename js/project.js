@@ -61,6 +61,16 @@ app.factory('ProductTypes',function(){
   return producttypes;
 });
 
+app.filter('startFrom', function() {
+    return function(input, start) {
+        var array = $.map(input, function(value, index) {
+            return [value];
+        });
+        console.log(array);
+        start = +start; //parse to int
+        return array.slice(start);
+    };
+});
 
 app.controller('ProductController',function($scope,$rootScope,$location,Products,ProductCart,ProductTypes){
   $scope.products=Products('');
@@ -71,6 +81,17 @@ app.controller('ProductController',function($scope,$rootScope,$location,Products
     if ($scope.searchAllProduct) return;
     return $scope.searchText;
   };
+
+  $scope.currentPage = 0;
+  $scope.pageSize = 3;
+  // $scope.totalProducts=function(){
+  //   return(Object.keys($scope.products).length-11);
+  // };
+  $scope.numberOfPages=function(){
+      console.log(Object.keys($scope.products).length-11);
+      return Math.ceil((Object.keys($scope.products).length-11)/$scope.pageSize);
+  };
+  console.log('current:'+$scope.currentPage);
 
   $scope.add=function(product,productId){
     ProductCart($scope.product,productId,true,product.cart);
@@ -83,7 +104,6 @@ app.controller('ProductController',function($scope,$rootScope,$location,Products
     console.log("UserId:"+user.id);
     $scope.userid = user.id;
     // alert("The user is logged in"+$scope.userid);
-    // $location.path('/new');
   });
 
 

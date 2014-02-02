@@ -33,7 +33,7 @@
 
       <div class="search-available-products">
         <h5>Search among All Available Products:&nbsp;&nbsp;<span>(your own &amp; other) </span></h5>
-        <div class="product-list" ng-repeat="product in products | orderByPriority |filter:filterProducts()">
+        <div class="product-list" ng-repeat="product in products | orderByPriority | filter:filterProducts() | startFrom:currentPage*pageSize | limitTo:pageSize">
           <product-row info="product"></product-row>
         </div>
         <div class="product-pagination">
@@ -42,21 +42,21 @@
               <ul>
                 <li>
                   <ul>
-                    <li><a href="javascript:void(0)" class="first-page disabled">First Page</a></li>
-                    <li><a href="javascript:void(0)" class="prev-page disabled">Previous Page</a></li>
+                    <li><a class="first-page" ng-disabled="currentPage == 0" ng-click="currentPage=0">First Page</a></li>
+                    <li><a class="prev-page" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Previous Page</a></li>
                     <li>
-                      <input type="text" placeholder="1">
+                      <input type="text" placeholder="{{currentPage+1}}">
                     </li>
-                    <li><span class="filenumber-per-page">/ 18</span></li>
-                    <li><a href="#" class="next-page">Next page</a></li>
-                    <li><a href="#" class="last-page">Last Page</a></li>
+                    <li><span class="filenumber-per-page">/{{numberOfPages()}}</span></li>
+                    <li><a class="next-page" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next page</a></li>
+                    <li><a class="last-page" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=numberOfPages()-1">Last Page</a></li>
                   </ul>
                 </li>
               </ul>
             </li>
             <li>
               <p><span>[</span>
-                <label>1 - 5 / 263</label><span>&nbsp;] </span>
+                <label>{{(currentPage * pageSize)+1}} - {{(currentPage * pageSize)+pageSize}} / {{numberOfPages()*pageSize}}</label><span>&nbsp;] </span>
               </p>
             </li>
           </ul>
